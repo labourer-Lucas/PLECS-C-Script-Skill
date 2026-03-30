@@ -14,9 +14,10 @@ This skill gives GitHub Copilot or Claude expert-level knowledge of the PLECS C-
 
 - Generate complete, correctly structured C-Script code for any block topology
 - Configure Setup tab parameters (inputs, outputs, states, sample times, etc.)
+- Transform your C code into C-Script code
 - Select the right code section for each task (`Output`, `Update`, `Derivative`, `Store/Restore Custom State`, …)
 - Use all PLECS macros correctly (`InputSignal`, `OutputSignal`, `ContState`, `DiscState`, `ZCSignal`, `IsSampleHit`, `ParamRealData`, `ParamStringData`, …)
-- Create or edit `.plecs` model files directly in text form
+- Edit `.plecs` model files directly in text form
 - Validate and debug existing C-Script implementations
 
 ## Repository Structure
@@ -81,16 +82,17 @@ If you are working on `.plecs` model files, you can ask the assistant to generat
 
 ## 中文说明
 
-本仓库是一个专为 [PLECS C-Script](https://docs.plexim.com/plecs/latest/c-scripts/) 定制控制模块编写而设计的 **GitHub Copilot Skill（技能文件）**。
+本仓库是一个专为 [PLECS C-Script](https://docs.plexim.com/plecs/latest/c-scripts/) 定制控制模块**编写、审查和调试**而设计的 **GitHub Copilot 或 Claude 技能文件**。
 
 ### 功能
 
-加载此技能后，GitHub Copilot 能够：
+加载此技能后，GitHub Copilot 或 Claude 能够：
 
 - 根据需求生成完整、结构正确的 C-Script 代码
 - 正确配置 Setup 标签页参数（输入/输出端口、状态变量、采样时间等）
+- 将你的 C 代码转换为 C-Script 代码
 - 为每种任务选择正确的代码段（`Output`、`Update`、`Derivative`、`Store/Restore Custom State` 等）
-- 正确使用所有 PLECS 宏（`InputSignal`、`OutputSignal`、`ContState`、`DiscState`、`IsSampleHit`、`ParamRealData` 等）
+- 正确使用所有 PLECS 宏（`InputSignal`、`OutputSignal`、`ContState`、`DiscState`、`ZCSignal`、`IsSampleHit`、`ParamRealData`、`ParamStringData` 等）
 - 直接以文本形式创建或编辑 `.plecs` 模型文件
 - 验证和调试已有的 C-Script 实现
 
