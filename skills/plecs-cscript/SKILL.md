@@ -144,8 +144,8 @@ Named parameters passed to the block. Accessible in code via `ParamRealData(i, j
 #include <stdlib.h>
 
 /* Signal aliases */
-#define U0   InputSignal(0)
-#define Y0   OutputSignal(0)
+#define U0   InputSignal(0, 0)
+#define Y0   OutputSignal(0, 0)
 #define X0   ContState(0)
 #define XD0  DiscState(0)
 
@@ -184,13 +184,13 @@ DiscState(1) = 0.0;
 
 ```c
 /* Use previous discrete state (non-direct feedthrough pattern) */
-OutputSignal(0) = DiscState(0);
+OutputSignal(0, 0) = DiscState(0);
 
 /* Or with direct feedthrough */
-OutputSignal(0) = InputSignal(0) * ParamRealData(0, 0);
+OutputSignal(0, 0) = InputSignal(0, 0) * ParamRealData(0, 0);
 ```
 
-> **Rule:** If `Direct feedthrough = 0` for input `i`, do NOT read `InputSignal(i)` in this section.
+> **Rule:** If `Direct feedthrough = 0` for input `i`, do NOT read `InputSignal(i, j)` in this section.
 
 ---
 
@@ -202,9 +202,9 @@ OutputSignal(0) = InputSignal(0) * ParamRealData(0, 0);
 
 ```c
 /* Update integral */
-DiscState(0) = DiscState(0) + ParamRealData(1, 0) * SampleTimePeriod(0) * InputSignal(0);
+DiscState(0) = DiscState(0) + ParamRealData(1, 0) * SampleTimePeriod(0) * InputSignal(0, 0);
 /* Store current input for next Output call */
-DiscState(1) = InputSignal(0);
+DiscState(1) = InputSignal(0, 0);
 ```
 
 ---
@@ -217,7 +217,7 @@ DiscState(1) = InputSignal(0);
 
 ```c
 /* First-order lag: tau * dx/dt = u - x */
-ContDeriv(0) = (InputSignal(0) - ContState(0)) / ParamRealData(0, 0);
+ContDeriv(0) = (InputSignal(0, 0) - ContState(0)) / ParamRealData(0, 0);
 ```
 
 > **Warning:** Do NOT modify `DiscState` or output variables here. Guard side-effects with `if (IsMajorStep)`.
@@ -276,9 +276,7 @@ for (int i = 0; i < bufferCount; ++i)
 
 | Macro | Arguments | Returns | Description |
 |---|---|---|---|
-| `InputSignal(i)` | `i`: port index (0-based) | `double` | Value at input port `i` (scalar or first element) |
 | `InputSignal(i, j)` | `i`: port, `j`: element | `double` | `j`-th element at input port `i` |
-| `OutputSignal(i)` | `i`: port index | lvalue | Assignable output at port `i` |
 | `OutputSignal(i, j)` | `i`: port, `j`: element | lvalue | Assignable `j`-th element at output port `i` |
 
 ### State Variables
