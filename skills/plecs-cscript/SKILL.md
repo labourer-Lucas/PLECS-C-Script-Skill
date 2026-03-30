@@ -16,7 +16,7 @@ correct, well-structured C-Script code that integrates cleanly with the PLECS so
 
 For the full macro reference, see [references/macros.md](references/macros.md).
 For complete worked examples, see [references/examples.md](references/examples.md).
-If the user is editing or generating a `.plecs` file, load [references/plecs-file-format.md](references/plecs-file-format.md) and [references/cscript.plecs](references/cscript.plecs) for the complete file format and a working reference model.
+If the user is editing or generating a `.plecs` file, load [references/plecs-file-format.md](references/plecs-file-format.md) and [references/cscript.plecs](references/cscript.plecs) for the complete file format and a working reference model.(CAUTION: if not required or edited directly, DO NOT GENERATE .plecs files, as they are very verbose and easy to get wrong. Always generate C code snippets for the user to paste into their existing model instead.)
 
 ---
 
