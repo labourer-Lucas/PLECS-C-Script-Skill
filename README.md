@@ -34,7 +34,7 @@ user manual/
   cscript_docmentation.md       ← Official PLECS C-Script documentation (reformatted)
 ```
 
-## Usage
+## Installation
 
 ### Method 1 — Manual installation
 
@@ -44,6 +44,15 @@ Copy the `plecs-cscript/` folder into the skills directory of your AI assistant:
 |---|---|
 | **GitHub Copilot** | `.github/skills/plecs-cscript/` |
 | **Claude** | `.claude/skills/plecs-cscript/` |
+
+For VS Code Copilot users, skills can be stored in two locations:
+
+| Skill type | Location |
+|---|---|
+| **Project skills** (stored in your repository) | `.github/skills/`, `.claude/skills/`, `.agents/skills/` |
+| **Personal skills** (stored in your user profile) | `~/.copilot/skills/`, `~/.claude/skills/`, `~/.agents/skills/` |
+
+You can configure additional file locations for project skills with the `chat.skillsLocations` setting. This is useful if you want to organize skills in a different folder structure or have multiple skill directories.
 
 ### Method 2 — Let your agent install it
 
@@ -56,9 +65,12 @@ https://github.com/labourer-Lucas/PLECS-C-Script-Skill/tree/main/skills/plecs-cs
 
 The agent will clone or download the folder and place it in the correct skills directory automatically.
 
+## Usage
 The assistant will automatically load `SKILL.md` whenever you ask about C-Script, custom blocks, or PLECS macros.
 
 **Trigger phrases:** `C-Script`, `cscript`, `PLECS block`, `custom block`, `PLECS macro`, or any related question.
+
+If you are working on `.plecs` model files, you can ask the assistant to generate or edit C-Script code directly in the text file directly by selecting the correct section.
 
 ## Reference
 
@@ -97,7 +109,7 @@ user manual/
   cscript_docmentation.md       ← 官方 PLECS C-Script 文档（已重新格式化）
 ```
 
-### 使用方式
+### 安装
 
 #### 方法一 — 手动安装
 
@@ -107,6 +119,15 @@ user manual/
 |---|---|
 | **GitHub Copilot** | `.github/skills/plecs-cscript/` |
 | **Claude** | `.claude/skills/plecs-cscript/` |
+
+对于 VS Code Copilot 用户，技能可以存储在两个位置：
+
+| 技能类型 | 存储位置 |
+|---|---|
+| **项目技能**（存储在仓库中） | `.github/skills/`、`.claude/skills/`、`.agents/skills/` |
+| **个人技能**（存储在用户配置文件中） | `~/.copilot/skills/`、`~/.claude/skills/`、`~/.agents/skills/` |
+
+你可以通过 `chat.skillsLocations` 设置为项目技能配置额外的文件路径，适用于自定义文件夹结构或多技能目录的场景。
 
 #### 方法二 — 让 AI 助手自动安装
 
@@ -119,6 +140,10 @@ https://github.com/labourer-Lucas/PLECS-C-Script-Skill/tree/main/skills/plecs-cs
 
 AI 助手会自动下载该文件夹并放置到正确的技能目录中。
 
+### 使用
+
 当你询问 C-Script、自定义模块或 PLECS 宏相关问题时，AI 助手会自动加载并应用此技能。
 
 **触发词：** `C-Script`、`cscript`、`PLECS block`、`custom block`、`PLECS macro` 或任何相关问题。
+
+如果你正在处理 `.plecs` 模型文件，可以直接让 AI 助手在文本文件中选取正确的代码段来生成或编辑 C-Script 代码。
