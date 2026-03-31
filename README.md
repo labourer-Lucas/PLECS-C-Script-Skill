@@ -5,6 +5,9 @@
 # PLECS C-Script Skill
 
 A GitHub Copilot or Claude skill for writing, reviewing, and debugging [PLECS C-Script](https://docs.plexim.com/plecs/latest/c-scripts/) custom control blocks.
+ <div align="center">
+  <img src="user%20manual/demo.gif" alt="PLECS C-Script Skill Demo" width="80%">
+</div>
 
 ---
 
