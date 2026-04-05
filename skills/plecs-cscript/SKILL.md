@@ -16,10 +16,11 @@ correct, well-structured C-Script code that integrates cleanly with the PLECS so
 
 For the full macro reference, see [references/macros.md](references/macros.md).
 For complete worked examples, see [references/examples.md](references/examples.md).
-If the user is editing or generating a `.plecs` file, load [references/plecs-file-format.md](references/plecs-file-format.md) and [references/cscript.plecs](references/cscript.plecs) for the complete file format and a working reference model.(CAUTION: if not required or edited directly, DO NOT GENERATE .plecs files, as they are very verbose and easy to get wrong. Always generate C code snippets for the user to paste into their existing model instead.)
+If the user is editing or generating a `.plecs` file, load [references/plecs-file-format.md](references/plecs-file-format.md) and [references/cscript.plecs](references/cscript.plecs) for the complete file format and a working reference model.(CAUTION: if not required or edited directly, DO NOT GENERATE .plecs files)
+
 
 ---
-
+*ALWAYS READ ALL LINES OF THIS DOCUMENT SKILL.MD before making changes.*
 # C-Script Architecture
 
 ## Block Setup Parameters
@@ -342,7 +343,7 @@ Simulation end
 ## Structuring Generated Code
 
 When the user asks for a C-Script implementation, always deliver **all required sections** with
-clear labels. Use this templates your skeleton and fill in only what each section needs，generate them in a C file:
+clear labels. Use this templates your skeleton and fill in only what each section needs，generate them in a `.c` file by default without indentation, and let the user copy-paste into the C-Script editor. Always include the section label as a comment, even if the section is empty, so the user knows where to paste each snippet in the dialog.:
 
 ```c
 /* === Setup Parameters ===
@@ -373,10 +374,6 @@ clear labels. Use this templates your skeleton and fill in only what each sectio
 /* === Restore Custom State === */
 /* ReadCustomStateDouble / Int */
 ```
-
-Omit sections that are truly empty (e.g., no Terminate code if nothing to free), but always
-include the section label as a comment so the user knows where to paste each snippet in the dialog.
-
 ---
 
 ## Decision Guide: Which Functions Do I Need?
